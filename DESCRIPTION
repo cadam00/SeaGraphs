@@ -23,6 +23,8 @@ Description: Transformation of sea currents to connectivity data. Two  files of
  in the form of sfnetwork, shapefile, edge list and adjacency matrix.
 License: GPL-3
 Encoding: UTF-8
+URL: https://github.com/cadam00/SeaGraphs, https://cadam00.github.io/SeaGraphs/
+BugReports: https://github.com/cadam00/SeaGraphs/issues
 LazyData: true
 Imports:
     sfnetworks,

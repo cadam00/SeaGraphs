@@ -1,3 +1,9 @@
+<!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/SeaGraphs)](https://CRAN.R-project.org/package=SeaGraphs)
+[![Developmental version](https://img.shields.io/badge/devel%20version-0.1.0-blue.svg)](https://github.com/cadam00/SeaGraphs)
+  [![R-CMD-check](https://github.com/cadam00/SeaGraphs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/cadam00/SeaGraphs/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
 **This research was conducted at the Department of Marine Sciences, University
 of the Aegean, Greece, supported by the European Union’s Horizon 2020 research
 and innovation programme HORIZON-CL6–2021-BIODIV-01–12, under grant agreement
