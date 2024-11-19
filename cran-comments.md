@@ -1,13 +1,8 @@
-# priorCON 0.1.2
+# SeaGraphs 0.1.0
 
-## Minor changes
+## Major changes
 
-- Remove redundant `r` SpatRaster object at `terra::rasterize` use (we care only
-for the "geometry" of the `r`, so no need for new object).
-
-- Update Introduction.Rmd, README and DESCRIPTION text.
-
-- Add pkgdown website.
+- Initial package version.
 
 ## R CMD check results
 
