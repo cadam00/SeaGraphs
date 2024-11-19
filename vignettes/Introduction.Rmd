@@ -83,13 +83,12 @@ presented,  with higher currents values detected at the South-West direction.
 A directed spatial graph in multiple forms (spatial network, shapefile, edge
 list, adjacency matrix) based on these components is constructed, based on
 these two components using the following process. This is doable by running the
-`SeaGraphs::seagraph` command as follows:
+`seagraph` command as follows:
 
 ``` r
 # Transform currents information to graph
 graph_result <- seagraph(component_u = component_u,
                          component_v = component_v)
-
 ```
 
 Flow and antpath leaflet maps are two possible graphical representations of such
