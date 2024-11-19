@@ -1,0 +1,120 @@
+# library(osmdata)
+# library(rnaturalearth)
+# library(rnaturalearthdata)
+# library(ggplot2)
+# library(RANN)
+# library(igraph)
+# library(reshape2)
+library(sfnetworks)
+# library(RcppHungarian)
+# library(spatstat)
+library(sf)
+# library(tmap)
+# tmap_mode("view")
+library(terra)
+# library(httr2)
+# library(ncdf4)
+library(stars)
+# library(lubridate)
+library(leaflet)
+# library(leaflet.extras2)
+# library(leaflet.minicharts)
+# library(dplyr)
+
+########################################################
+#https://www.eea.europa.eu/en/datahub/datahubitem-view/6fc8ad2d-195d-40f4-bdec-576e7d1268e4
+
+# setwd("C:/Users/Administrator/Desktop/test_analysis/corridors/corridors_chr")
+# merged_Med <- st_read("examined_area.shp")
+#
+# normalize_weights<-TRUE
+#
+# #https://data.marine.copernicus.eu/product/MEDSEA_ANALYSISFORECAST_PHY_006_013/description
+# nc_data <- read_stars("currents.nc")
+#
+# currents_xy <- nc_data[,,,1, drop = TRUE]
+#
+# cost_raster_input_x <- rast(currents_xy[1])
+# crs(cost_raster_input_x) <- st_crs(merged_Med)$wkt
+# cost_x <- crop(cost_raster_input_x, vect(merged_Med), mask=TRUE)
+#
+# cost_raster_input_y <- rast(currents_xy[2])
+# crs(cost_raster_input_y) <- st_crs(merged_Med)$wkt
+# cost_y <- crop(cost_raster_input_y, vect(merged_Med), mask=TRUE)
+#
+# cost_x <- crop(cost_x, ext(merged_Med)/4)
+# cost_y <- crop(cost_y, ext(merged_Med)/4)
+# merged_Med        <- st_crop(merged_Med, ext(merged_Med)/4)
+#
+# st_write(merged_Med, "C:/Users/Administrator/Documents/packages/SeaGraphs/inst/external/mask_shapefile/mask_shapefile.shp")
+# writeRaster(cost_x, "C:/Users/Administrator/Documents/packages/SeaGraphs/inst/external/cost_x.tiff", overwrite=TRUE)
+# writeRaster(cost_y, "C:/Users/Administrator/Documents/packages/SeaGraphs/inst/external/cost_y.tiff", overwrite=TRUE)
+#
+# rm(nc_data) #we delete it from memory because its very heavy
+# rm(currents_xy) #we delete it from memory because its very heavy
+
+
+## Black sea
+library(terra)
+library(sf)
+setwd("C:/Users/Administrator/Desktop/test_analysis/corridors/black_sea_velocities_geotifs_and_description/black_sea_velocities_geotifs_and_description")
+cost_raster_input_x <- rast("climatology_temporal_mean/u_clm_mean.tif")
+cost_raster_input_y <- rast("climatology_temporal_mean/v_clm_mean.tif")
+component_u <- crop(cost_raster_input_x, ext(cost_raster_input_x)/16)
+component_v <- crop(cost_raster_input_y, ext(cost_raster_input_x)/16)
+
+mask_shapefile <- st_as_sf(st_as_sfc(st_bbox(component_u), crs=crs(component_u)))
+mask_shapefile <- st_crop(mask_shapefile, ext(mask_shapefile)/2)
+
+st_write(mask_shapefile, "C:/Users/Administrator/Documents/packages/SeaGraphs/inst/external/mask_shapefile/mask_shapefile.shp", append = FALSE)
+writeRaster(component_u, "C:/Users/Administrator/Documents/packages/SeaGraphs/inst/external/component_u.tiff", overwrite=TRUE)
+writeRaster(component_v, "C:/Users/Administrator/Documents/packages/SeaGraphs/inst/external/component_v.tiff", overwrite=TRUE)
+
+# qtm(cost_x)+qtm(cost_y)+
+#   qtm(start_area)+qtm(end_area)+qtm(random_points_1)+qtm(random_points_2)
+
+##############################################################
+k_neighbors <- 7
+# normalize_weights <- TRUE
+
+## Τίτλος, Περιγραφή
+## Ποιούς να βάλω στο πακέτο
+
+tic <- Sys.time()
+sfnet_result <- SeaGraphs::seagraph(component_u=get_component_u(),
+                                    component_v=get_component_v(),
+                                    mask_shapefile=NULL,
+                                    k_neighbors=k_neighbors)
+toc <- Sys.time()
+toc - tic
+
+tic <- Sys.time()
+antpath_sfn(sfnet_result)
+toc <- Sys.time()
+toc - tic
+
+tic <- Sys.time()
+flows_sfn(sfnet_result)
+toc <- Sys.time()
+toc - tic
+
+saveRDS(antpath_sfn(sfnet_result),
+        "C:/Users/Administrator/Documents/packages/SeaGraphs/inst/test_datasets/antpath_sfn.rds", version=2)
+saveRDS(flows_sfn(sfnet_result),
+              "C:/Users/Administrator/Documents/packages/SeaGraphs/inst/test_datasets/flows_sfn.rds", version=2)
+
+saveRDS(antpath_sfn(sfnet_result, lowcut = 0.1, uppcut = 0.9),
+        "C:/Users/Administrator/Documents/packages/SeaGraphs/inst/test_datasets/antpath_sfncut.rds", version=2)
+saveRDS(flows_sfn(sfnet_result, lowcut = 0.1, uppcut = 0.9),
+        "C:/Users/Administrator/Documents/packages/SeaGraphs/inst/test_datasets/flows_sfncut.rds", version=2)
+
+saveRDS(antpath_sfn(sfnet_result, uppcut = 0.9),
+        "C:/Users/Administrator/Documents/packages/SeaGraphs/inst/test_datasets/antpath_sfnuppcut.rds", version=2)
+saveRDS(flows_sfn(sfnet_result, uppcut = 0.9),
+        "C:/Users/Administrator/Documents/packages/SeaGraphs/inst/test_datasets/flows_sfnuppcut.rds", version=2)
+
+saveRDS(antpath_sfn(sfnet_result, lowcut = 0.1),
+        "C:/Users/Administrator/Documents/packages/SeaGraphs/inst/test_datasets/antpath_sfnlowcut.rds", version=2)
+saveRDS(flows_sfn(sfnet_result, lowcut = 0.1),
+        "C:/Users/Administrator/Documents/packages/SeaGraphs/inst/test_datasets/flows_sfnlowcut.rds", version=2)
+

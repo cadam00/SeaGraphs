@@ -1,0 +1,7 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^LICENSE$
+^cran-comments\.md$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

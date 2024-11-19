@@ -1,0 +1,41 @@
+Package: SeaGraphs
+Type: Package
+Title: Sea Currents to Connectivity Transformation
+Version: 0.1.0
+Authors@R: c(person("Nikolaos", "Nagkoulis", role = "aut",
+             email = "nikolaosn@civil.auth.gr",
+             comment = c(ORCID = "0000-0002-1900-2634")),
+             person("Christos", "Adam", role = c("aut", "cre"),
+             email = "econp266@econ.soc.uoc.gr"),
+             person("Ioannis G.", "Mamoutos", role = "aut",
+             email = "i.mamoutos@marine.aegean.gr",
+             comment = c(ORCID = "0000-0002-2697-2620")),
+             person("Antonios D.", "Mazaris", role = "aut",
+             email = "amazaris@bio.auth.gr",
+             comment = c(ORCID = "0000-0002-4961-5490")),
+             person("Stelios", "Katsanevakis", role = "aut",
+             email = "stelios@katsanevakis.com",
+             comment = c(ORCID = "0000-0002-5137-7540"))
+             )
+Maintainer: Christos Adam <econp266@econ.soc.uoc.gr>
+Description: Transformation of sea currents to connectivity data. Two  files of
+ horizontal and vertical currents flows are transformed into connectivity data
+ in the form of sfnetwork, shapefile, edge list and adjacency matrix.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports:
+    sfnetworks,
+    sf,
+    terra,
+    leaflet,
+    leaflet.minicharts,
+    leaflet.extras2,
+    methods,
+    stats
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+VignetteBuilder: knitr, rmarkdown

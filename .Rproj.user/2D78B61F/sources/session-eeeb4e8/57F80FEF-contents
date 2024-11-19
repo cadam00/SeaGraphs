@@ -1,0 +1,250 @@
+library(shiny)
+library(shinydashboard)
+
+# Define UI
+ui <-  fluidPage(
+  # dashboardHeader(title = "Folder Tree Structure"),
+  # dashboardHeader(title = span(icon("fa fa-file-archive"), "black_sea_currents_to_graphs.zip")),
+  # dashboardHeader(title = span(icon("file-archive"), "black_sea_currents_to_graphs.zip")),
+  titlePanel(title = div(style = "display: flex; align-items: center;",
+                              icon("file-archive"),
+                              span("black_sea_currents_to_graphs.zip", style = "margin-left: 10px;")),
+                  # titleWidth = 350
+             ),
+  # dashboardSidebar(
+  #   sidebarMenu(
+  #     width = 350,
+  #     menuItem("black_sea_currents_to_graphs.zip", tabName = "folders", icon = icon("fa fa-file-archive"))
+  #   )
+  # ),
+  # dashboardSidebar(),
+  # dashboardSidebar(
+  #   collapsed = TRUE,
+  #   sidebarMenu()
+  # ),
+  # dashboardBody(
+
+    # tags$head(
+    #   tags$style(HTML("
+    #     .main-header .sidebar-toggle { display: none; }
+    #     .main-sidebar { display: none; }
+    #     .content-wrapper, .main-footer { margin-left: 0; }
+    #   "))
+    # ),
+
+
+
+    # tags$head(
+    #   tags$style(HTML("
+    #     .main-header .sidebar-toggle { display: none; }  /* Hide the hamburger menu */
+    #     .main-sidebar { display: none; }                 /* Hide the sidebar */
+    #     .content-wrapper, .main-footer, .content {
+    #       margin-left: 0;                                /* Remove left margin */
+    #     }
+    #     .content {
+    #       padding: 20px;                                 /* Add padding to content */
+    #     }
+    #   "))),
+    # tabItems(
+    #   tabItem(tabName = "folders",
+              fluidRow(
+                column(3,
+                       div(
+                         tags$i(class = "fa fa-folder", style = "color: #FFD700; font-size: 30px;"),
+                         " Yearly_aggregation",
+                         tags$ul(
+                           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " year_mean.dbf"),
+                           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " year_mean.prj"),
+                           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " year_mean.shp"),
+                           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " year_mean.shx"),
+                           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " year_mean_ID_coords.csv"),
+                           # tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " year_mean_adj_mat.csv"),
+                           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " year_mean_edge_list.csv")
+                         ),
+                         tags$i(class = "fa fa-folder", style = "color: #FFD700; font-size: 30px;"),
+                         " Monthly_aggregation",
+                         tags$ul(
+                           tags$li(tags$i(class = "fa fa-folder", style = "color: #FFD700; font-size: 25px;"), " Month_01",
+                                   tags$ul(
+                                     tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_01.dbf"),
+                                     tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_01.prj"),
+                                     tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_01.shp"),
+                                     tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_01.shx"),
+                                     tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_01_ID_coords.csv"),
+                                     tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_01_edge_list.csv")
+                                   )),
+                           tags$li(tags$i(class = "fa fa-folder", style = "color: #FFD700; font-size: 25px;"), " Month_02",
+                                   #         tags$ul(
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_02.dbf"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_02.prj"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_02.shp"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_02.shx"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_02_ID_coords.csv"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_02_edge_list.csv")
+                                   #         )
+                           ),
+                           tags$li(tags$i(class = "fa fa-folder", style = "color: #FFD700; font-size: 25px;"), " Month_03",
+                                   #         tags$ul(
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_03.dbf"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_03.prj"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_03.shp"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_03.shx"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_03_ID_coords.csv"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_03_edge_list.csv")
+                                   # )
+                           ),
+                           # # Repeat for other folders under Monthly_aggregation...
+                           tags$li(tags$i(class = "fa fa-folder", style = "color: #FFD700; font-size: 25px;"), " Month_04",
+                                   #         tags$ul(
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_04.dbf"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_04.prj"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_04.shp"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_04.shx"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_04_ID_coords.csv"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_04_edge_list.csv")
+                                   #         )
+                           ),
+                           # # Repeat for Month_05 to Month_12
+                           tags$li(tags$i(class = "fa fa-folder", style = "color: #FFD700; font-size: 25px;"), " Month_05",
+                                   #         tags$ul(
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_05.dbf"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_05.prj"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_05.shp"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_05.shx"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_05_ID_coords.csv"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_05_edge_list.csv"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_05_edge_list.csv")
+                                   #         )
+                           ),
+                           # # Repeat for the rest of the folders from Month_06 to Month_12...
+                           # # The structure is similar to the above examples
+                           tags$li(tags$i(class = "fa fa-folder", style = "color: #FFD700; font-size: 25px;"), " Month_06",
+                                   #         tags$ul(
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_06.dbf"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_06.prj"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_06.shp"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_06.shx"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_06_ID_coords.csv"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_06_edge_list.csv")
+                                   #         )
+                           ),
+                           tags$li(tags$i(class = "fa fa-folder", style = "color: #FFD700; font-size: 25px;"), " Month_07",
+                                   #         tags$ul(
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_07.dbf"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_07.prj"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_07.shp"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_07.shx"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_07_ID_coords.csv"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_07_edge_list.csv")
+                                   #         )
+                           ),
+                           tags$li(tags$i(class = "fa fa-folder", style = "color: #FFD700; font-size: 25px;"), " Month_08",
+                                   #         tags$ul(
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_08.dbf"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_08.prj"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_08.shp"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_08.shx"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_08_ID_coords.csv"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_08_edge_list.csv")
+                                   #         )
+                           ),
+                           tags$li(tags$i(class = "fa fa-folder", style = "color: #FFD700; font-size: 25px;"), " Month_09",
+                                   #         tags$ul(
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_09.dbf"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_09.prj"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_09.shp"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_09.shx"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_09_ID_coords.csv"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_09_edge_list.csv")
+                                   #         )
+                           ),
+                           tags$li(tags$i(class = "fa fa-folder", style = "color: #FFD700; font-size: 25px;"), " Month_10",
+                                   #         tags$ul(
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_10.dbf"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_10.prj"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_10.shp"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_10.shx"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_10_ID_coords.csv"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_10_edge_list.csv")
+                                   #         )
+                           ),
+                           tags$li(tags$i(class = "fa fa-folder", style = "color: #FFD700; font-size: 25px;"), " Month_11",
+                                   #         tags$ul(
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_11.dbf"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_11.prj"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_11.shp"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_11.shx"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_11_ID_coords.csv"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_11_edge_list.csv")
+                                   #         )
+                           ),
+                           tags$li(tags$i(class = "fa fa-folder", style = "color: #FFD700; font-size: 25px;"), " Month_12",
+                                   #         tags$ul(
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_12.dbf"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_12.prj"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_12.shp"),
+                                   #           tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " Month_12.shx"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_12_ID_coords.csv"),
+                                   #           tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " Month_12_edge_list.csv")
+                                   #         )
+                           )),
+                           tags$i(class = "fa fa-folder", style = "color: #FFD700; font-size: 25px;"), " Seasonal_aggregation",
+                                   tags$ul(
+                                     tags$li(tags$i(class = "fa fa-folder", style = "color: #FFD700; font-size: 20px;"), " JFM",
+                                             tags$ul(
+                                               tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " JFM.dbf"),
+                                               tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " JFM.prj"),
+                                               tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " JFM.shp"),
+                                               tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " JFM.shx"),
+                                               tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " JFM_ID_coords.csv"),
+                                               tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " JFM_edge_list.csv")
+                                             )),
+                                     tags$li(tags$i(class = "fa fa-folder", style = "color: #FFD700; font-size: 20px;"), " AMJ",
+                                             # tags$ul(
+                                             #   tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " AMJ.dbf"),
+                                             #   tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " AMJ.prj"),
+                                             #   tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " AMJ.shp"),
+                                             #   tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " AMJ.shx"),
+                                             #   tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " AMJ_ID_coords.csv"),
+                                             #   tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " AMJ_edge_list.csv")
+                                             # )
+                                     ),
+                                     tags$li(tags$i(class = "fa fa-folder", style = "color: #FFD700; font-size: 20px;"), " JAS",
+                                             # tags$ul(
+                                             #   tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " JAS.dbf"),
+                                             #   tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " JAS.prj"),
+                                             #   tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " JAS.shp"),
+                                             #   tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " JAS.shx"),
+                                             #   tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " JAS_ID_coords.csv"),
+                                             #   tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " JAS_edge_list.csv")
+                                             # )
+                                     ),
+                                     tags$li(tags$i(class = "fa fa-folder", style = "color: #FFD700; font-size: 20px;"), " OND",
+                                             # tags$ul(
+                                             #   tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " OND.dbf"),
+                                             #   tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " OND.prj"),
+                                             #   tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " OND.shp"),
+                                             #   tags$li(tags$i(class = "fa fa-file-alt", style = "color: #4682B4; font-size: 20px;"), " OND.shx"),
+                                             #   tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " OND_ID_coords.csv"),
+                                             #   tags$li(tags$i(class = "fa fa-file-csv", style = "color: #4682B4; font-size: 20px;"), " OND_edge_list.csv")
+                                             # )
+                                     )
+                                   )
+                         )
+                         )
+                       # )
+              #   )
+              # )
+      )
+    )
+  # )
+# )
+
+# Define server logic
+server <- function(input, output) {
+  # No server logic needed for static folder structure
+}
+
+# Run the application
+shinyApp(ui = ui, server = server)
+

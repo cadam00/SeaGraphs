@@ -1,0 +1,161 @@
+# library(osmdata)
+# library(rnaturalearth)
+# library(rnaturalearthdata)
+# library(ggplot2)
+# library(RANN)
+# library(igraph)
+# library(reshape2)
+library(sfnetworks)
+# library(RcppHungarian)
+# library(spatstat)
+library(sf)
+# library(tmap)
+# tmap_mode("view")
+library(terra)
+# library(httr2)
+library(ncdf4)
+library(stars)
+# library(lubridate)
+library(leaflet)
+# library(leaflet.extras2)
+# library(leaflet.minicharts)
+# library(dplyr)
+
+########################################################
+#https://www.eea.europa.eu/en/datahub/datahubitem-view/6fc8ad2d-195d-40f4-bdec-576e7d1268e4
+
+setwd("C:/Users/Administrator/Desktop/test_analysis/corridors/black_sea_velocities_netcdf_files/black_sea_velocities_netcdf_files")
+
+#https://data.marine.copernicus.eu/product/MEDSEA_ANALYSISFORECAST_PHY_006_013/description
+nc_data <- ncdf4::nc_open("blk_sur_vel_nrm_clm_mean.nc")
+
+cost_raster_input_x <- flip(t(rast(ncdf4::ncvar_get(nc_data, "uo"))))
+cost_raster_input_y <- flip(t(rast(ncdf4::ncvar_get(nc_data, "vo"))))
+
+crs(cost_raster_input_x) <- "+init=epsg:4375"
+crs(cost_raster_input_y) <- "+init=epsg:4375"
+##############################
+#https://data.marine.copernicus.eu/product/MEDSEA_ANALYSISFORECAST_PHY_006_013/description
+nc_data <- read_stars("C:/Users/Administrator/Downloads/uo_clm_mean_test.tif")#4375
+
+currents_xy <- nc_data[,,,1, drop = TRUE]
+
+cost_raster_input_x <- rast(currents_xy[1])
+crs(cost_raster_input_x) <- st_crs(merged_Med)$wkt
+cost_x <- crop(cost_raster_input_x, vect(merged_Med), mask=TRUE)
+
+cost_raster_input_y <- rast(currents_xy[2])
+crs(cost_raster_input_y) <- st_crs(merged_Med)$wkt
+cost_y <- crop(cost_raster_input_y, vect(merged_Med), mask=TRUE)
+
+# qtm(cost_x)+qtm(cost_y)+
+#   qtm(start_area)+qtm(end_area)+qtm(random_points_1)+qtm(random_points_2)
+
+##############################################################
+
+library(terra)
+library(SeaGraphs)
+setwd("C:/Users/Administrator/Desktop/test_analysis/corridors/black_sea_velocities_geotifs_and_description/black_sea_velocities_geotifs_and_description")
+cost_raster_input_x <- rast("climatology_temporal_mean/u_clm_mean.tif")
+cost_raster_input_y <- rast("climatology_temporal_mean/v_clm_mean.tif")
+
+##############################################################
+k_neighbors <- 7
+# normalize_weights <- TRUE
+
+## Τίτλος, Περιγραφή
+## Θα έχει και land?
+## Πηγές δεδομένων
+## Ποιούς να βάλω στο πακέτο
+
+tic <- Sys.time()
+sfnet_result <- seagraph(cost_x=cost_raster_input_x,
+                         cost_y=cost_raster_input_y,
+                         mask_shapefile=NULL,
+                         k_neighbors=k_neighbors)
+toc <- Sys.time()
+toc - tic
+
+tic <- Sys.time()
+antpath_sfn(sfnet_result)
+toc <- Sys.time()
+toc - tic
+
+tic <- Sys.time()
+flows_sfn(sfnet_result)
+toc <- Sys.time()
+toc - tic
+
+saveRDS(antpath_sfn(sfnet_result),
+        "blk_sur_vel_nrm_clm_mean_antpath_sfn.rds")
+saveRDS(flows_sfn(sfnet_result),
+        "blk_sur_vel_nrm_clm_mean_flows_sfn.rds")
+
+sf::st_write(sfnet_result$sf, "C:/Users/Administrator/Desktop/test_analysis/corridors/Yearly_aggregation/year_mean.shp")
+
+# write.table(sfnet_result$adj_mat, "C:/Users/Administrator/Desktop/test_analysis/corridors/Yearly_aggregation/year_mean_adj_mat.csv",
+#             row.names = FALSE, col.names = FALSE)
+
+write.table(sfnet_result$edge_list, "C:/Users/Administrator/Desktop/test_analysis/corridors/Yearly_aggregation/year_mean_edge_list.csv",
+            row.names = FALSE, col.names = FALSE)
+
+write.table(sfnet_result$ID_coords, "C:/Users/Administrator/Desktop/test_analysis/corridors/Yearly_aggregation/year_mean_ID_coords.csv",
+            row.names = FALSE, col.names = FALSE)
+
+
+###########################################################
+library(terra)
+library(SeaGraphs)
+setwd("C:/Users/Administrator/Desktop/test_analysis/corridors/black_sea_velocities_geotifs_and_description/black_sea_velocities_geotifs_and_description")
+u_costs <- paste0("u_clm_seas_0", 1:4, ".tif")
+v_costs <- paste0("v_clm_seas_0", 1:4, ".tif")
+
+savenms <- paste0("C:/Users/Administrator/Desktop/test_analysis/corridors/Seasonal_aggregation/", c("JFM","AMJ","JAS","OND"), "/", c("JFM","AMJ","JAS","OND"))
+
+k_neighbors <- 7
+for (i in seq.int(4)){
+  sfnet_result <- seagraph(cost_x=rast(paste0("seasonal_climatology/", u_costs[i])),
+                           cost_y=rast(paste0("seasonal_climatology/", v_costs[i])),
+                           mask_shapefile=NULL,
+                           k_neighbors=k_neighbors)
+
+  sf::st_write(sfnet_result$sf, paste0(savenms[i], ".shp"))
+
+  write.table(sfnet_result$edge_list, paste0(savenms[i],"_edge_list.csv"),
+              row.names = FALSE, col.names = FALSE)
+
+  write.table(sfnet_result$ID_coords, paste0(savenms[i],"_ID_coords.csv"),
+              row.names = FALSE, col.names = FALSE)
+}
+
+
+###########################################################
+library(terra)
+library(SeaGraphs)
+setwd("C:/Users/Administrator/Desktop/test_analysis/corridors/black_sea_velocities_geotifs_and_description/black_sea_velocities_geotifs_and_description")
+u_costs <- c(paste0("u_Month_0", 1:9, ".tif"), paste0("u_Month_", 10:12, ".tif"))
+v_costs <- c(paste0("v_Month_0", 1:9, ".tif"), paste0("v_Month_", 10:12, ".tif"))
+
+savenms <- c(
+  paste0("C:/Users/Administrator/Desktop/test_analysis/corridors/Monthly_aggregation/Month_0", 1:9, "/Month_0", 1:9),
+  paste0("C:/Users/Administrator/Desktop/test_analysis/corridors/Monthly_aggregation/Month_", 10:12, "/Month_", 10:12)
+)
+
+k_neighbors <- 7
+for (i in seq.int(12)){
+  sfnet_result <- seagraph(cost_x=rast(paste0("monthly_climatology/", u_costs[i])),
+                           cost_y=rast(paste0("monthly_climatology/", v_costs[i])),
+                           mask_shapefile=NULL,
+                           k_neighbors=k_neighbors)
+
+  sf::st_write(sfnet_result$sf, paste0(savenms[i], ".shp"))
+
+  write.table(sfnet_result$edge_list, paste0(savenms[i],"_edge_list.csv"),
+              row.names = FALSE, col.names = FALSE)
+
+  write.table(sfnet_result$ID_coords, paste0(savenms[i],"_ID_coords.csv"),
+              row.names = FALSE, col.names = FALSE)
+}
+
+
+

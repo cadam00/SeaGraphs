@@ -1,0 +1,18 @@
+importFrom("terra", "crs", "res", "project", "ext", "crop", "crds", "vect",
+           "extract", "rast")
+importFrom("sf", "st_transform", "st_as_sf", "st_distance", "st_linestring",
+           "st_coordinates", "st_reverse", "st_drop_geometry", "st_crs",
+           "st_crs<-", "st_read", "st_is", "st_sfc")
+importFrom("leaflet", "leaflet", "addTiles", "addProviderTiles", "addPolylines",
+           "colorNumeric")
+importFrom("sfnetworks", "as_sfnetwork")
+importFrom("leaflet.extras2", "addAntpath")
+importFrom("leaflet.minicharts", "addFlows")
+importFrom("methods", "is")
+importFrom("stats", "quantile")
+export("seagraph")
+export("antpath_sfn")
+export("flows_sfn")
+export("get_component_u")
+export("get_component_v")
+export("get_mask_shapefile")
