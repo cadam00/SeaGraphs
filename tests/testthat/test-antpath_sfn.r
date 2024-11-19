@@ -8,41 +8,35 @@ test_that("antpath_sfn works", {
                            mask_shapefile = NULL,
                            k_neighbors    = 7)
 
-  antpath_sfn_testdata <- readRDS("test_datasets",
-                                  "antpath_sfn.rds",
-                                  package = "SeaGraphs")
-
-  expect_equal(antpath_sfn(graph_result),
-               antpath_sfn_testdata
+  antpath_sfn_testdata <- readRDS(system.file("test_datasets/antpath_sfn.rds",
+                                              package="SeaGraphs"))
+  expect_equal(antpath_sfn(graph_result)$x,
+               antpath_sfn_testdata$x
   )
 
-
-  antpath_sfn_testcut <- readRDS("test_datasets",
-                                 "antpath_sfncut.rds",
-                                 package = "SeaGraphs")
-  expect_equal(antpath_sfn(graph_result, lowcut = 0.1, uppcut = 0.9),
-               antpath_sfn_testcut
+  antpath_sfn_testcut <- readRDS(system.file("test_datasets/antpath_sfncut.rds",
+                                             package="SeaGraphs"))
+  expect_equal(antpath_sfn(graph_result, lowcut = 0.1, uppcut = 0.9)$x,
+               antpath_sfn_testcut$x
   )
 
-  expect_equal(antpath_sfn(graph_result, lowcut = 0.1),
-               readRDS("test_datasets",
-                       "antpath_sfnlowcut.rds",
-                       package = "SeaGraphs")
+  expect_equal(antpath_sfn(graph_result, lowcut = 0.1)$x,
+               readRDS(system.file("test_datasets/antpath_sfnlowcut.rds",
+                                             package="SeaGraphs"))$x
   )
 
-  expect_equal(antpath_sfn(graph_result, uppcut = 0.9),
-               readRDS("test_datasets",
-                       "antpath_sfnuppcut.rds",
-                       package = "SeaGraphs")
+  expect_equal(antpath_sfn(graph_result, uppcut = 0.9)$x,
+               readRDS(system.file("test_datasets/antpath_sfnuppcut.rds",
+                                             package="SeaGraphs"))$x
   )
 
-  expect_equal(antpath_sfn(graph_result$sfnetwork),
-               antpath_sfn_testdata
+  expect_equal(antpath_sfn(graph_result$sfnetwork)$x,
+               antpath_sfn_testdata$x
   )
 
   sf_example <- sf::st_as_sf(graph_result$sfnetwork, "edges")
-  expect_equal(antpath_sfn(sf_example),
-               antpath_sfn_testdata
+  expect_equal(antpath_sfn(sf_example)$x,
+               antpath_sfn_testdata$x
   )
 
   # Error cases

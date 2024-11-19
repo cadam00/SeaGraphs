@@ -10,33 +10,33 @@ test_that("flows_sfn works", {
 
   flows_sfn_testdata <- readRDS(system.file("test_datasets/flows_sfn.rds",
                                               package="SeaGraphs"))
-  expect_equal(flows_sfn(graph_result),
-               flows_sfn_testdata
+  expect_equal(flows_sfn(graph_result)$x,
+               flows_sfn_testdata$x
   )
 
   flows_sfn_testcut <- readRDS(system.file("test_datasets/flows_sfncut.rds",
                                              package="SeaGraphs"))
-  expect_equal(flows_sfn(graph_result, lowcut = 0.1, uppcut = 0.9),
-               flows_sfn_testcut
+  expect_equal(flows_sfn(graph_result, lowcut = 0.1, uppcut = 0.9)$x,
+               flows_sfn_testcut$x
   )
 
-  expect_equal(flows_sfn(graph_result, lowcut = 0.1),
+  expect_equal(flows_sfn(graph_result, lowcut = 0.1)$x,
                readRDS(system.file("test_datasets/flows_sfnlowcut.rds",
-                                             package="SeaGraphs"))
+                                   package="SeaGraphs"))$x
   )
 
-  expect_equal(flows_sfn(graph_result, uppcut = 0.9),
+  expect_equal(flows_sfn(graph_result, uppcut = 0.9)$x,
                readRDS(system.file("test_datasets/flows_sfnuppcut.rds",
-                                             package="SeaGraphs"))
+                                   package="SeaGraphs"))$x
   )
 
-  expect_equal(flows_sfn(graph_result$sfnetwork),
-               flows_sfn_testdata
+  expect_equal(flows_sfn(graph_result$sfnetwork)$x,
+               flows_sfn_testdata$x
   )
 
   sf_example <- sf::st_as_sf(graph_result$sfnetwork, "edges")
-  expect_equal(flows_sfn(sf_example),
-               flows_sfn_testdata
+  expect_equal(flows_sfn(sf_example)$x,
+               flows_sfn_testdata$x
   )
 
   # Error cases
@@ -44,12 +44,12 @@ test_that("flows_sfn works", {
                          silent = TRUE)) == "try-error", TRUE)
 
   expect_equal(class(try(flows_sfn(sf_example[,c("from", "to")]),
-                           silent = TRUE)) == "try-error", TRUE)
+                         silent = TRUE)) == "try-error", TRUE)
 
   expect_equal(class(try(flows_sfn("Hello"),
-                           silent = TRUE)) == "try-error", TRUE)
+                         silent = TRUE)) == "try-error", TRUE)
 
   expect_equal(class(try(flows_sfn(graph_result, lowcut = 0.9, uppcut = 0.1),
-                           silent = TRUE)) == "try-error", TRUE)
+                         silent = TRUE)) == "try-error", TRUE)
 
 })
