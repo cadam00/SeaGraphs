@@ -11,33 +11,33 @@ test_that("flows_sfn works", {
 
   flows_sfn_testdata <- readRDS(system.file("test_datasets/flows_sfn.rds",
                                               package="SeaGraphs"))
-  expect_equal(flows_sfn(graph_result)$x,
-               flows_sfn_testdata$x
+  expect_equal(flows_sfn(graph_result)$x$limits,
+               flows_sfn_testdata$x$limits
   )
 
   flows_sfn_testcut <- readRDS(system.file("test_datasets/flows_sfncut.rds",
                                              package="SeaGraphs"))
-  expect_equal(flows_sfn(graph_result, lowcut = 0.1, uppcut = 0.9)$x,
-               flows_sfn_testcut$x
+  expect_equal(flows_sfn(graph_result, lowcut = 0.1, uppcut = 0.9)$x$limits,
+               flows_sfn_testcut$x$limits
   )
 
-  expect_equal(flows_sfn(graph_result, lowcut = 0.1)$x,
+  expect_equal(flows_sfn(graph_result, lowcut = 0.1)$x$limits,
                readRDS(system.file("test_datasets/flows_sfnlowcut.rds",
-                                   package="SeaGraphs"))$x
+                                   package="SeaGraphs"))$x$limits
   )
 
-  expect_equal(flows_sfn(graph_result, uppcut = 0.9)$x,
+  expect_equal(flows_sfn(graph_result, uppcut = 0.9)$x$limits,
                readRDS(system.file("test_datasets/flows_sfnuppcut.rds",
-                                   package="SeaGraphs"))$x
+                                   package="SeaGraphs"))$x$limits
   )
 
-  expect_equal(flows_sfn(graph_result$sfnetwork)$x,
-               flows_sfn_testdata$x
+  expect_equal(flows_sfn(graph_result$sfnetwork)$x$limits,
+               flows_sfn_testdata$x$limits
   )
 
   sf_example <- sf::st_as_sf(graph_result$sfnetwork, "edges")
-  expect_equal(flows_sfn(sf_example)$x,
-               flows_sfn_testdata$x
+  expect_equal(flows_sfn(sf_example)$x$limits,
+               flows_sfn_testdata$x$limits
   )
 
   # Error cases

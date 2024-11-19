@@ -5,5 +5,5 @@
             "ascending": true
         }
     ],
-    "path": "~/packages/SeaGraphs"
+    "path": "~/packages/SeaGraphs/tests/testthat"
 }
