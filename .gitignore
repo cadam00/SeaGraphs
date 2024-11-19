@@ -1,2 +1,12 @@
-docs
 .Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+inst/doc
+/doc/
+/Meta/
+revdep/
+.Rdata
+.httr-oauth
+.DS_Store
+.quarto
