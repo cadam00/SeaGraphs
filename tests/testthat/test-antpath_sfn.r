@@ -8,26 +8,32 @@ test_that("antpath_sfn works", {
                            mask_shapefile = NULL,
                            k_neighbors    = 7)
 
-  antpath_sfn_testdata <- readRDS(system.file("test_datasets/antpath_sfn.rds",
-                                              package="SeaGraphs"))
+  antpath_sfn_testdata <- readRDS("test_datasets",
+                                  "antpath_sfn.rds",
+                                  package = "SeaGraphs")
+
   expect_equal(antpath_sfn(graph_result),
                antpath_sfn_testdata
   )
 
-  antpath_sfn_testcut <- readRDS(system.file("test_datasets/antpath_sfncut.rds",
-                                             package="SeaGraphs"))
+
+  antpath_sfn_testcut <- readRDS("test_datasets",
+                                 "antpath_sfncut.rds",
+                                 package = "SeaGraphs")
   expect_equal(antpath_sfn(graph_result, lowcut = 0.1, uppcut = 0.9),
                antpath_sfn_testcut
   )
 
   expect_equal(antpath_sfn(graph_result, lowcut = 0.1),
-               readRDS(system.file("test_datasets/antpath_sfnlowcut.rds",
-                                             package="SeaGraphs"))
+               readRDS("test_datasets",
+                       "antpath_sfnlowcut.rds",
+                       package = "SeaGraphs")
   )
 
   expect_equal(antpath_sfn(graph_result, uppcut = 0.9),
-               readRDS(system.file("test_datasets/antpath_sfnuppcut.rds",
-                                             package="SeaGraphs"))
+               readRDS("test_datasets",
+                       "antpath_sfnuppcut.rds",
+                       package = "SeaGraphs")
   )
 
   expect_equal(antpath_sfn(graph_result$sfnetwork),
