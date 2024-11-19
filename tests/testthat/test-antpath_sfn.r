@@ -1,6 +1,7 @@
 test_that("antpath_sfn works", {
 
   library(SeaGraphs)
+  set.seed(123, "Mersenne-Twister", sample.kind="Rejection")
   component_u <- get_component_u()
   component_v <- get_component_v()
   graph_result <- seagraph(component_u    = component_u,
