@@ -48,6 +48,7 @@ test_that("seagraph works", {
     )
   )
 
+  # Check working under warnings
   vect_mask_shapefile <- terra::vect(mask_shapefile)
   masked_result <- suppressWarnings(
                      seagraph(component_u    = component_u,
