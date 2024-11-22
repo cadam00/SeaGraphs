@@ -48,10 +48,11 @@ test_that("seagraph works", {
     )
   )
 
+  vect_mask_shapefile <- terra::vect(mask_shapefile)
   masked_result <- suppressWarnings(
                      seagraph(component_u    = component_u,
                               component_v    = component_v,
-                              mask_shapefile = terra::vect(mask_shapefile),
+                              mask_shapefile = vect_mask_shapefile,
                               k_neighbors    = 7)
                    )
 
@@ -61,6 +62,22 @@ test_that("seagraph works", {
       xmax = 34.88851721033,
       ymax = 43.91555333360
     )
+  )
+
+  vect_mask_shapefile <- terra::project(vect_mask_shapefile, "+init=EPSG:4269")
+  masked_result <- suppressWarnings(
+    seagraph(component_u    = component_u,
+             component_v    = component_v,
+             mask_shapefile = vect_mask_shapefile,
+             k_neighbors    = 7)
+  )
+
+  expect_equal(sf::st_bbox(masked_result$sf)[1:4],
+               c(xmin = 34.44407289282,
+                 ymin = 43.74888682143,
+                 xmax = 34.88851721033,
+                 ymax = 43.91555333360
+               )
   )
 
   ## Check errors
