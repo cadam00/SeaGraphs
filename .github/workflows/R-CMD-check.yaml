@@ -36,6 +36,13 @@ jobs:
         if: runner.os == 'macOS'
         run: brew doctor
 
+      - name: Stash Uncommitted Changes in Homebrew
+        if: runner.os == 'macOS'
+        run: |
+          cd /opt/homebrew/Library/Taps/homebrew/homebrew-core
+          git stash -u
+          git clean -d -f
+
       - name: Install Homebrew if not already installed
         if: runner.os == 'macOS'
         run: |
