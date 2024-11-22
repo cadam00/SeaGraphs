@@ -1,5 +1,5 @@
-.Rhistory
 .Rproj.user
+.Rhistory
 .RData
 .Ruserdata
 inst/doc
@@ -11,4 +11,3 @@ revdep/
 .DS_Store
 .quarto
 docs
-
