@@ -1,5 +1,3 @@
-# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
-# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
   push:
     branches: [main, master]
@@ -34,7 +32,8 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@v2
 
-      - name: Install qpdf
+      - name: Install qpdf on macOS
+        if: runner.os == 'macOS'
         run: brew install qpdf
 
       - uses: r-lib/actions/setup-r@v2
