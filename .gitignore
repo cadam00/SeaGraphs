@@ -3,7 +3,9 @@
 .RData
 .Ruserdata
 inst/doc
-
+/doc/
+/Meta/
+revdep/
 .Rdata
 .httr-oauth
 .DS_Store
