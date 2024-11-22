@@ -32,16 +32,13 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@v2
 
-      - name: Check Homebrew
-        if: runner.os == 'macOS'
-        run: brew doctor
-
-      - name: Stash Uncommitted Changes in Homebrew
+      - name: Ensure Homebrew is Clean
         if: runner.os == 'macOS'
         run: |
           cd /opt/homebrew/Library/Taps/homebrew/homebrew-core
-          git stash -u
-          git clean -d -f
+          git fetch --all
+          git reset --hard origin/HEAD
+          brew cleanup
 
       - name: Install Homebrew if not already installed
         if: runner.os == 'macOS'
