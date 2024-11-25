@@ -7,7 +7,7 @@ get_mask_shapefile <- function()
     system.file("external/mask_shapefile/mask_shapefile.shp",
     package="SeaGraphs")
   )
-
+#
 melt_neighbours <- function(input_to_melt){
   dim_input_to_melt <- dim(input_to_melt)
   nn_results_edges <- matrix(c(rep(seq.int(dim_input_to_melt[1]),
