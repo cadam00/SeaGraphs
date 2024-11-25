@@ -126,7 +126,7 @@ antpath_sfn(graph_result)
 
 ## **References**
 
-<span class="nocase" id = "ref-lima2020copernicus">
+<span class="nocase" id = "ref-lima2020copernicus"></span>
 Lima, L., Aydogdu, A., Escudier, R., Masina, S., Ciliberti, S. A., Azevedo, D.,
 Peneva, E. L., Causio, S., Cipollone, A., Clementi, E., Cretí, S., Stefanizzi,
 L., Lecci, R., Palermo, F., Coppini, G., Pinardi, N., and Palazov, A. (2020).
@@ -135,6 +135,6 @@ Copernicus Monitoring Environment Marine Service (CMEMS).
 https://doi.org/10.25423/CMCC/BLKSEA_MULTIYEAR_PHY_007_004.
 Last Access: 07/11/2024.
 
-<span class="nocase" id = "ref-schulzweida2020cdo">
+<span class="nocase" id = "ref-schulzweida2020cdo"></span>
 Schulzweida, U. (2023). CDO User Guide (23.0). Zenodo.
 https://doi.org/10.5281/zenodo.10020800.
