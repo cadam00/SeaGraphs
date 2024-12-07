@@ -15,7 +15,7 @@ ecosystem-based maritime spatial planning and conservation in European Seas”.*
 
 A plethora of sea current databases is typically available along many fields
 data (e.g. Lima et al. ([2020](#ref-lima2020copernicus))). However,
-transforming these data into a graph structure is a not straight-forward
+transforming these data into a graph structure is not a straightforward
 implementation. This gap is attempted to be filled by *SeaGraphs* package.
 
 ## **Installation**
