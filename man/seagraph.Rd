@@ -9,7 +9,7 @@ Sea Currents To Connectivity Transformation
 }
 
 \usage{
-seagraph(component_u, component_v, mask_shapefile = NULL, k_neighbors = 7)
+seagraph(component_u, component_v, mask_shapefile = NULL, k_neighbors = 7L)
 }
 \arguments{
 \item{component_u}{
@@ -24,24 +24,25 @@ Optional \code{sf} or SpatVector object for masking \code{component_u} and
 indicating that no mask is performed.
 }
 \item{k_neighbors}{
-Number \eqn{k} of nearest neighbors to use. Default is 7.
+\code{integer} object with the number \eqn{k} of nearest neighbors to use. The
+default is \code{7L}.
 }
 }
 
 \details{
 Sea currents data of the input are transformed into weighted directed graph
-connectivity data. Every grid cell nad corner of \code{component_u} and
-\code{component_v} is considered as a separate graph node. These connectivity
-data are provided in sfnetwork, \code{sf}, edge list and adjacency matrix form.
-An additional \code{data.frame} with correspondence between indices and
-coordinates for edge list and adjacency matrix is returned as well. The weights
-in all outputs are minmax-scaled in \eqn{[0-1]}.
+connectivity data. Each centroid of \code{component_u} and \code{component_v} is
+considered as a separate graph node. These connectivity data are provided in
+sfnetwork, \code{sf}, edge list and adjacency matrix form. An additional
+\code{data.frame} with correspondence between indices and coordinates for edge
+list and adjacency matrix is returned as well. The weights in all outputs are
+minmax-scaled in \eqn{[0-1]}.
 
 Extent, resolution and coordinate system of both must have the same for both
 \code{component_u} and \code{component_v}; otherwise an error stops the
 function's execution. In case that a \code{mask_shapefile} is provided, then it
 is internally assured that it has the same resolution or coordinates with
-\code{component_u} and a warining is prompted.
+\code{component_u} and a warning is prompted.
 }
 
 \value{
