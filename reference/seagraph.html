@@ -38,7 +38,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">seagraph</span><span class="op">(</span><span class="va">component_u</span>, <span class="va">component_v</span>, mask_shapefile <span class="op">=</span> <span class="cn">NULL</span>, k_neighbors <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">seagraph</span><span class="op">(</span><span class="va">component_u</span>, <span class="va">component_v</span>, mask_shapefile <span class="op">=</span> <span class="cn">NULL</span>, k_neighbors <span class="op">=</span> <span class="fl">7L</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -57,23 +57,24 @@
 indicating that no mask is performed.</p></dd>
 
 <dt id="arg-k-neighbors">k_neighbors<a class="anchor" aria-label="anchor" href="#arg-k-neighbors"></a></dt>
-<dd><p>Number \(k\) of nearest neighbors to use. Default is 7.</p></dd>
+<dd><p><code>integer</code> object with the number \(k\) of nearest neighbors to use. The
+default is <code>7L</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Sea currents data of the input are transformed into weighted directed graph
-connectivity data. Every grid cell nad corner of <code>component_u</code> and
-<code>component_v</code> is considered as a separate graph node. These connectivity
-data are provided in sfnetwork, <code>sf</code>, edge list and adjacency matrix form.
-An additional <code>data.frame</code> with correspondence between indices and
-coordinates for edge list and adjacency matrix is returned as well. The weights
-in all outputs are minmax-scaled in \([0-1]\).</p>
+connectivity data. Each centroid of <code>component_u</code> and <code>component_v</code> is
+considered as a separate graph node. These connectivity data are provided in
+sfnetwork, <code>sf</code>, edge list and adjacency matrix form. An additional
+<code>data.frame</code> with correspondence between indices and coordinates for edge
+list and adjacency matrix is returned as well. The weights in all outputs are
+minmax-scaled in \([0-1]\).</p>
 <p>Extent, resolution and coordinate system of both must have the same for both
 <code>component_u</code> and <code>component_v</code>; otherwise an error stops the
 function's execution. In case that a <code>mask_shapefile</code> is provided, then it
 is internally assured that it has the same resolution or coordinates with
-<code>component_u</code> and a warining is prompted.</p>
+<code>component_u</code> and a warning is prompted.</p>
     </div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
