@@ -37,10 +37,14 @@ normalize_dividing <- function(x) {
 }
 
 seagraph <- function(component_u, component_v,
-                     mask_shapefile=NULL,
-                     k_neighbors = 7
+                     mask_shapefile = NULL,
+                     k_neighbors = 7L
                      ){
 
+  if ( (k_neighbors <= 0) )
+    stop("k_neighbors must must be a positive number.")
+  if (k_neighbors != as.integer(k_neighbors))
+    stop("k_neighbors must be an integer number.")
 
   crs_component_u <- crs(component_u)
   crs_component_v <- crs(component_v)

@@ -124,4 +124,23 @@ test_that("seagraph works", {
 
   expect_equal(class(graph_result) == "try-error", TRUE)
 
+  component_v <- get_component_v()
+  graph_result <- try(seagraph(
+    component_u    = component_u,
+    component_v    = component_v,
+    mask_shapefile = NULL,
+    k_neighbors    = 7.5),
+    silent = TRUE)
+
+  expect_equal(class(graph_result) == "try-error", TRUE)
+
+  graph_result <- try(seagraph(
+    component_u    = component_u,
+    component_v    = component_v,
+    mask_shapefile = NULL,
+    k_neighbors    = -7),
+    silent = TRUE)
+
+  expect_equal(class(graph_result) == "try-error", TRUE)
+
 })
