@@ -2,7 +2,7 @@
 
 \alias{get_component_v}
 
-\title{Example component u}
+\title{Example component v}
 
 \description{
 Example vertical direction raster.
