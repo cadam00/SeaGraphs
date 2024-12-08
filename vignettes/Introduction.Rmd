@@ -1,5 +1,5 @@
 ---
-title: "Introduction to prior3D"
+title: "Introduction to SeaGraphs"
 author: "Nikolaos Nagkoulis, Christos Adam, Ioannis G. Mamoutos,
 Antonios D. Mazaris, Stelios Katsanevakis"
 output:
@@ -15,7 +15,7 @@ linkcolor: blue
 link-citations: true
 header-includes: \usepackage{float}
 vignette: >
-  %\VignetteIndexEntry{Introduction to prior3D}
+  %\VignetteIndexEntry{Introduction to SeaGraphs}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 ---
