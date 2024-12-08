@@ -78,7 +78,7 @@ plot(component_v, main="v")
 <span id="fig-Figure1"></span>Figure 1: Currents $u$ and $v$ components.
 </p>
 
-In Figure [2](#fig-Figure2) the two directions of components $u$ and $v$ are
+In Figure [1](#fig-Figure1) the two directions of components $u$ and $v$ are
 presented,  with higher currents values detected at the South-West direction.
 A directed spatial graph in multiple forms (spatial network, shapefile, edge
 list, adjacency matrix) based on these components is constructed, based on
