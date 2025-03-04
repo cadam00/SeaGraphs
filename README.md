@@ -1,6 +1,6 @@
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/SeaGraphs)](https://CRAN.R-project.org/package=SeaGraphs)
-[![Developmental version](https://img.shields.io/badge/devel%20version-0.1.0-blue.svg)](https://github.com/cadam00/SeaGraphs)
+[![Developmental version](https://img.shields.io/badge/devel%20version-0.1.1-blue.svg)](https://github.com/cadam00/SeaGraphs)
 [![R-CMD-check](https://github.com/cadam00/SeaGraphs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/cadam00/SeaGraphs/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/cadam00/SeaGraphs/graph/badge.svg)](https://app.codecov.io/gh/cadam00/SeaGraphs)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14501021.svg)](https://doi.org/10.5281/zenodo.14501021)
@@ -17,7 +17,10 @@ ecosystem-based maritime spatial planning and conservation in European Seas”.*
 A plethora of sea current databases is typically available along many fields
 data (e.g. Lima et al. ([2020](#ref-lima2020copernicus))). However,
 transforming these data into a graph structure is not a straightforward
-implementation. This gap is attempted to be filled by *SeaGraphs* package.
+implementation. This gap is attempted to be filled by *SeaGraphs* package. A
+further inspection of the methods used in this package is illustrated at
+Nagkoulis et al. ([2025](#ref-nagkoulis2025ecological)), where the whole Black
+Sea is examined.
 
 ## **Installation**
 
@@ -117,6 +120,12 @@ Copernicus Monitoring Environment Marine Service (CMEMS).
 https://doi.org/10.25423/CMCC/BLKSEA_MULTIYEAR_PHY_007_004.
 Last Access: 07/11/2024.
 
+<span class="nocase" id = "ref-nagkoulis2025ecological"></span>
+Nagkoulis, N., Adam, C., Mamoutos, I., Katsanevakis, S., and Mazaris, A. D.
+(2025). An ecological connectivity dataset for Black Sea obtained from sea
+currents. <em>Data in Brief</em>, <em>58</em>, 111268.
+https://doi.org/10.1016/j.dib.2024.111268
+
 <span class="nocase" id = "ref-schulzweida2020cdo"></span>
 Schulzweida, U. (2023). CDO User Guide (23.0). Zenodo.
-https://doi.org/10.5281/zenodo.10020800.
+https://doi.org/10.5281/zenodo.10020800

@@ -8,11 +8,11 @@
 <title>Sea Currents to Connectivity Transformation • SeaGraphs</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><script src="deps/MathJax-3.2.2/tex-chtml.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Sea Currents to Connectivity Transformation">
-<meta name="description" content="Transformation of sea currents to connectivity data. Two files of horizontal and vertical currents flows are transformed into connectivity data in the form of sfnetwork, shapefile, edge list and adjacency matrix.">
-<meta property="og:description" content="Transformation of sea currents to connectivity data. Two files of horizontal and vertical currents flows are transformed into connectivity data in the form of sfnetwork, shapefile, edge list and adjacency matrix.">
+<meta name="description" content="Transformation of sea currents to connectivity data. Two files of horizontal and vertical currents flows are transformed into connectivity data in the form of sfnetwork, shapefile, edge list and adjacency matrix. An application example is shown at Nagkoulis et al. (2025) &lt;doi:10.1016/j.dib.2024.111268&gt;.">
+<meta property="og:description" content="Transformation of sea currents to connectivity data. Two files of horizontal and vertical currents flows are transformed into connectivity data in the form of sfnetwork, shapefile, edge list and adjacency matrix. An application example is shown at Nagkoulis et al. (2025) &lt;doi:10.1016/j.dib.2024.111268&gt;.">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">SeaGraphs</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,7 +50,7 @@
 <h2 id="introduction-to-the-seagraphs-package-tutorial">
 <strong>Introduction to the SeaGraphs Package (tutorial)</strong><a class="anchor" aria-label="anchor" href="#introduction-to-the-seagraphs-package-tutorial"></a>
 </h2>
-<p>A plethora of sea current databases is typically available along many fields data (e.g. Lima et al. (<a href="#ref-lima2020copernicus">2020</a>)). However, transforming these data into a graph structure is not a straightforward implementation. This gap is attempted to be filled by <em>SeaGraphs</em> package.</p>
+<p>A plethora of sea current databases is typically available along many fields data (e.g. Lima et al. (<a href="#ref-lima2020copernicus">2020</a>)). However, transforming these data into a graph structure is not a straightforward implementation. This gap is attempted to be filled by <em>SeaGraphs</em> package. A further inspection of the methods used in this package is illustrated at Nagkoulis et al. (<a href="#ref-nagkoulis2025ecological">2025</a>), where the whole Black Sea is examined.</p>
 </div>
 <div class="section level2">
 <h2 id="installation">
@@ -110,7 +110,8 @@
 <strong>References</strong><a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
 <p><span id="ref-lima2020copernicus" class="nocase"></span> Lima, L., Aydogdu, A., Escudier, R., Masina, S., Ciliberti, S. A., Azevedo, D., Peneva, E. L., Causio, S., Cipollone, A., Clementi, E., Cretí, S., Stefanizzi, L., Lecci, R., Palermo, F., Coppini, G., Pinardi, N., and Palazov, A. (2020). Black Sea Physical Reanalysis (CMEMS BS-Currents) (Version 1) [Data set]. Copernicus Monitoring Environment Marine Service (CMEMS). <a href="https://doi.org/10.25423/CMCC/BLKSEA_MULTIYEAR_PHY_007_004" class="external-link uri">https://doi.org/10.25423/CMCC/BLKSEA_MULTIYEAR_PHY_007_004</a>. Last Access: 07/11/2024.</p>
-<p><span id="ref-schulzweida2020cdo" class="nocase"></span> Schulzweida, U. (2023). CDO User Guide (23.0). Zenodo. <a href="https://doi.org/10.5281/zenodo.10020800" class="external-link uri">https://doi.org/10.5281/zenodo.10020800</a>.</p>
+<p><span id="ref-nagkoulis2025ecological" class="nocase"></span> Nagkoulis, N., Adam, C., Mamoutos, I., Katsanevakis, S., and Mazaris, A. D. (2025). An ecological connectivity dataset for Black Sea obtained from sea currents. <em>Data in Brief</em>, <em>58</em>, 111268. <a href="https://doi.org/10.1016/j.dib.2024.111268" class="external-link uri">https://doi.org/10.1016/j.dib.2024.111268</a></p>
+<p><span id="ref-schulzweida2020cdo" class="nocase"></span> Schulzweida, U. (2023). CDO User Guide (23.0). Zenodo. <a href="https://doi.org/10.5281/zenodo.10020800" class="external-link uri">https://doi.org/10.5281/zenodo.10020800</a></p>
 </div>
 
   </main><aside class="col-md-3"><div class="links">
@@ -151,7 +152,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://CRAN.R-project.org/package=SeaGraphs" class="external-link"><img src="https://www.r-pkg.org/badges/version/SeaGraphs" alt="CRAN status"></a></li>
-<li><a href="https://github.com/cadam00/SeaGraphs" class="external-link"><img src="https://img.shields.io/badge/devel%20version-0.1.0-blue.svg" alt="Developmental version"></a></li>
+<li><a href="https://github.com/cadam00/SeaGraphs" class="external-link"><img src="https://img.shields.io/badge/devel%20version-0.1.1-blue.svg" alt="Developmental version"></a></li>
 <li><a href="https://github.com/cadam00/SeaGraphs/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/cadam00/SeaGraphs/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://app.codecov.io/gh/cadam00/SeaGraphs" class="external-link"><img src="https://codecov.io/gh/cadam00/SeaGraphs/graph/badge.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://doi.org/10.5281/zenodo.14501021" class="external-link"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.14501021.svg" alt="DOI"></a></li>

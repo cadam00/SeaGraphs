@@ -63,6 +63,13 @@ indices and coordinates for edge list (edge_list) and adjacency matrix
 }
 }
 
+\references{
+Nagkoulis, N., Adam, C., Mamoutos, I., Katsanevakis, S., and Mazaris, A. D.
+(2025). An ecological connectivity dataset for Black Sea obtained from sea
+currents. \emph{Data in Brief}, \emph{58}, 111268.
+\doi{10.1016/j.dib.2024.111268}
+}
+
 \seealso{
 \code{
 \link[SeaGraphs]{antpath_sfn},
