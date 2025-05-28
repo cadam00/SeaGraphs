@@ -1,0 +1,283 @@
+# --------------------------------------------
+# CITATION file created with {cffr} R package
+# See also: https://docs.ropensci.org/cffr/
+# --------------------------------------------
+ 
+cff-version: 1.2.0
+message: 'To cite package "SeaGraphs" in publications use:'
+type: software
+license: GPL-3.0-only
+title: 'SeaGraphs: Sea Currents to Connectivity Transformation'
+version: 0.1.1
+doi: 10.1016/j.dib.2024.111268
+abstract: Transformation of sea currents to connectivity data. Two files of horizontal
+  and vertical currents flows are transformed into connectivity data in the form of
+  sfnetwork, shapefile, edge list and adjacency matrix. An application example is
+  shown at Nagkoulis et al. (2025) <https://doi.org/10.1016/j.dib.2024.111268>.
+authors:
+- family-names: Nagkoulis
+  given-names: Nikolaos
+  email: nikolaosn@civil.auth.gr
+  orcid: https://orcid.org/0000-0002-1900-2634
+- family-names: Adam
+  given-names: Christos
+  email: econp266@econ.soc.uoc.gr
+  orcid: https://orcid.org/0009-0003-3244-7034
+- family-names: Mamoutos
+  given-names: Ioannis G.
+  email: i.mamoutos@marine.aegean.gr
+  orcid: https://orcid.org/0000-0002-2697-2620
+- family-names: Mazaris
+  given-names: Antonios D.
+  email: amazaris@bio.auth.gr
+  orcid: https://orcid.org/0000-0002-4961-5490
+- family-names: Katsanevakis
+  given-names: Stelios
+  email: stelios@katsanevakis.com
+  orcid: https://orcid.org/0000-0002-5137-7540
+preferred-citation:
+  type: article
+  title: An ecological connectivity dataset for Black Sea obtained from sea currents
+  authors:
+  - family-names: Nagkoulis
+    given-names: Nikolaos
+    email: nikolaosn@civil.auth.gr
+    orcid: https://orcid.org/0000-0002-1900-2634
+  - family-names: Adam
+    given-names: Christos
+    email: econp266@econ.soc.uoc.gr
+    orcid: https://orcid.org/0009-0003-3244-7034
+  - family-names: Mamoutos
+    given-names: Ioannis
+  - family-names: Mazaris
+    given-names: Antonios D.
+    email: amazaris@bio.auth.gr
+    orcid: https://orcid.org/0000-0002-4961-5490
+  - family-names: Katsanevakis
+    given-names: Stelios
+    email: stelios@katsanevakis.com
+    orcid: https://orcid.org/0000-0002-5137-7540
+  journal: Data in Brief
+  year: '2025'
+  volume: '58'
+  doi: 10.1016/j.dib.2024.111268
+  start: '111268'
+repository-code: https://github.com/cadam00/SeaGraphs
+url: https://cadam00.github.io/SeaGraphs/
+contact:
+- family-names: Adam
+  given-names: Christos
+  email: econp266@econ.soc.uoc.gr
+  orcid: https://orcid.org/0009-0003-3244-7034
+keywords:
+- corridors
+- ecological-modelling
+- graph-theory
+- r
+- r-package
+references:
+- type: software
+  title: sfnetworks
+  abstract: 'sfnetworks: Tidy Geospatial Networks'
+  notes: Imports
+  url: https://luukvdmeer.github.io/sfnetworks/
+  repository: https://CRAN.R-project.org/package=sfnetworks
+  authors:
+  - family-names: Meer
+    given-names: Lucas
+    name-particle: van der
+    email: luukvandermeer@live.nl
+    orcid: https://orcid.org/0000-0001-6336-8628
+  - family-names: Abad
+    given-names: Lorena
+    email: lore.abad6@gmail.com
+    orcid: https://orcid.org/0000-0003-0554-734X
+  - family-names: Gilardi
+    given-names: Andrea
+    email: andrea.gilardi@unimib.it
+    orcid: https://orcid.org/0000-0002-9424-7439
+  - family-names: Lovelace
+    given-names: Robin
+    email: r.lovelace@leeds.ac.uk
+    orcid: https://orcid.org/0000-0001-5679-6536
+  year: '2025'
+  doi: 10.32614/CRAN.package.sfnetworks
+- type: software
+  title: sf
+  abstract: 'sf: Simple Features for R'
+  notes: Imports
+  url: https://r-spatial.github.io/sf/
+  repository: https://CRAN.R-project.org/package=sf
+  authors:
+  - family-names: Pebesma
+    given-names: Edzer
+    email: edzer.pebesma@uni-muenster.de
+    orcid: https://orcid.org/0000-0001-8049-7069
+  year: '2025'
+  doi: 10.32614/CRAN.package.sf
+- type: software
+  title: terra
+  abstract: 'terra: Spatial Data Analysis'
+  notes: Imports
+  url: https://rspatial.org/
+  repository: https://CRAN.R-project.org/package=terra
+  authors:
+  - family-names: Hijmans
+    given-names: Robert J.
+    email: r.hijmans@gmail.com
+    orcid: https://orcid.org/0000-0001-5872-2872
+  year: '2025'
+  doi: 10.32614/CRAN.package.terra
+- type: software
+  title: leaflet
+  abstract: 'leaflet: Create Interactive Web Maps with the JavaScript ''Leaflet''
+    Library'
+  notes: Imports
+  url: https://rstudio.github.io/leaflet/
+  repository: https://CRAN.R-project.org/package=leaflet
+  authors:
+  - family-names: Cheng
+    given-names: Joe
+    email: joe@posit.co
+  - family-names: Schloerke
+    given-names: Barret
+    email: barret@posit.co
+    orcid: https://orcid.org/0000-0001-9986-114X
+  - family-names: Karambelkar
+    given-names: Bhaskar
+  - family-names: Xie
+    given-names: Yihui
+  year: '2025'
+  doi: 10.32614/CRAN.package.leaflet
+- type: software
+  title: leaflet.minicharts
+  abstract: 'leaflet.minicharts: Mini Charts for Interactive Maps'
+  notes: Imports
+  repository: https://CRAN.R-project.org/package=leaflet.minicharts
+  authors:
+  - family-names: Bachelier
+    given-names: Veronique
+    email: veronique.bachelier@rte-france.com
+  - family-names: ZAWAM
+    given-names: Jalal-Edine
+  - family-names: Thieurmel
+    given-names: Benoit
+    email: benoit.thieurmel@datastorm.fr
+  - family-names: Guillem
+    given-names: Francois
+  year: '2025'
+  doi: 10.32614/CRAN.package.leaflet.minicharts
+- type: software
+  title: leaflet.extras2
+  abstract: 'leaflet.extras2: Extra Functionality for ''leaflet'' Package'
+  notes: Imports
+  url: https://trafficonese.github.io/leaflet.extras2/
+  repository: https://CRAN.R-project.org/package=leaflet.extras2
+  authors:
+  - family-names: Sebastian
+    given-names: Gatscha
+    email: sebastian_gatscha@gmx.at
+  year: '2025'
+  doi: 10.32614/CRAN.package.leaflet.extras2
+- type: software
+  title: methods
+  abstract: 'R: A Language and Environment for Statistical Computing'
+  notes: Imports
+  authors:
+  - name: R Core Team
+  institution:
+    name: R Foundation for Statistical Computing
+    address: Vienna, Austria
+  year: '2025'
+- type: software
+  title: stats
+  abstract: 'R: A Language and Environment for Statistical Computing'
+  notes: Imports
+  authors:
+  - name: R Core Team
+  institution:
+    name: R Foundation for Statistical Computing
+    address: Vienna, Austria
+  year: '2025'
+- type: software
+  title: 'R: A Language and Environment for Statistical Computing'
+  notes: Depends
+  url: https://www.R-project.org/
+  authors:
+  - name: R Core Team
+  institution:
+    name: R Foundation for Statistical Computing
+    address: Vienna, Austria
+  year: '2025'
+  version: '>= 4.1.0'
+- type: software
+  title: knitr
+  abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
+  notes: Suggests
+  url: https://yihui.org/knitr/
+  repository: https://CRAN.R-project.org/package=knitr
+  authors:
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  year: '2025'
+  doi: 10.32614/CRAN.package.knitr
+- type: software
+  title: rmarkdown
+  abstract: 'rmarkdown: Dynamic Documents for R'
+  notes: Suggests
+  url: https://pkgs.rstudio.com/rmarkdown/
+  repository: https://CRAN.R-project.org/package=rmarkdown
+  authors:
+  - family-names: Allaire
+    given-names: JJ
+    email: jj@posit.co
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  - family-names: Dervieux
+    given-names: Christophe
+    email: cderv@posit.co
+    orcid: https://orcid.org/0000-0003-4474-2498
+  - family-names: McPherson
+    given-names: Jonathan
+    email: jonathan@posit.co
+  - family-names: Luraschi
+    given-names: Javier
+  - family-names: Ushey
+    given-names: Kevin
+    email: kevin@posit.co
+  - family-names: Atkins
+    given-names: Aron
+    email: aron@posit.co
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Cheng
+    given-names: Joe
+    email: joe@posit.co
+  - family-names: Chang
+    given-names: Winston
+    email: winston@posit.co
+  - family-names: Iannone
+    given-names: Richard
+    email: rich@posit.co
+    orcid: https://orcid.org/0000-0003-3925-190X
+  year: '2025'
+  doi: 10.32614/CRAN.package.rmarkdown
+- type: software
+  title: testthat
+  abstract: 'testthat: Unit Testing for R'
+  notes: Suggests
+  url: https://testthat.r-lib.org
+  repository: https://CRAN.R-project.org/package=testthat
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.testthat
+  version: '>= 3.0.0'
+

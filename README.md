@@ -1,9 +1,9 @@
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/SeaGraphs)](https://CRAN.R-project.org/package=SeaGraphs)
-[![Developmental version](https://img.shields.io/badge/devel%20version-0.1.1-blue.svg)](https://github.com/cadam00/SeaGraphs)
+[![Developmental version](https://img.shields.io/badge/devel%20version-0.1.2-blue.svg)](https://github.com/cadam00/SeaGraphs)
 [![R-CMD-check](https://github.com/cadam00/SeaGraphs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/cadam00/SeaGraphs/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/cadam00/SeaGraphs/graph/badge.svg)](https://app.codecov.io/gh/cadam00/SeaGraphs)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14501021.svg)](https://doi.org/10.5281/zenodo.14501021)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14169972.svg)](https://doi.org/10.5281/zenodo.14169972)
 <!-- badges: end -->
 
 **This research was conducted at the Department of Marine Sciences, University
@@ -29,6 +29,12 @@ Development version of the package can be installed using:
 if (!require(remotes)) install.packages("remotes")
 remotes::install_github("cadam00/SeaGraphs")
 ```
+
+## **Citation**
+
+> Nagkoulis N, Adam C, Mamoutos I, Mazaris AD, Katsanevakis S, 2025. An 
+ecological connectivity dataset for Black Sea obtained from sea currents. Data
+in Brief <b>58</b>: 111268. https://doi.org/10.1016/j.dib.2024.111268
 
 ## **Illustration example**
 

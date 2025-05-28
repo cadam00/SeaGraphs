@@ -1,4 +1,4 @@
-# SeaGraphs 0.1.1
+# SeaGraphs 0.1.2
 
 ## R CMD check results
 

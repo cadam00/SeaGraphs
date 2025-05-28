@@ -1,0 +1,10 @@
+bibentry(
+  bibtype  = "Article",
+  title    = "An ecological connectivity dataset for Black Sea obtained from sea currents",
+  author   = "Nikolaos Nagkoulis, Christos Adam, Ioannis Mamoutos, Antonios D. Mazaris, Stelios Katsanevakis",
+  journal  = "Data in Brief",
+  year     = "2025",
+  volume   = "58",
+  pages    = "111268",
+  doi      = "10.1016/j.dib.2024.111268"
+)
