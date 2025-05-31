@@ -28,7 +28,7 @@
 
     <a class="navbar-brand me-2" href="index.html">SeaGraphs</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,8 +62,11 @@
 <h2 id="installation">
 <strong>Installation</strong><a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>Development version of the package can be installed using:</p>
+<p>Latest official version of the package can be installed using:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"SeaGraphs"</span><span class="op">)</span></span></code></pre></div>
+<p>Development version of the package can be installed using:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org" class="external-link">remotes</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"cadam00/SeaGraphs"</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -80,7 +83,7 @@
 <strong>Illustration example</strong><a class="anchor" aria-label="anchor" href="#illustration-example"></a>
 </h2>
 <p>Currents information about the flow directions is usually split into horizontal (<span class="math inline">\(u\)</span>) and vertical (<span class="math inline">\(v\)</span>) components, regarding the horizontal and the vertical flow of the currents, respectively. As an example we use a modified yearly aggregated subset of the Black Sea site (Lima et al., <a href="#ref-lima2020copernicus">2020</a>; Schulzweida, <a href="#ref-schulzweida2020cdo">2023</a>) provided in the form of <code>SpatRaster</code> elements. This input can be plotted using the following:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Import packages</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/cadam00/SeaGraphs" class="external-link">SeaGraphs</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -99,19 +102,19 @@
 <span id="fig-Figure1"></span>Figure 1: Currents <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> components.
 </p>
 <p>In Figure <a href="#fig-Figure1">1</a> the two directions of components <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> are presented, with higher currents values detected at the South-West direction. A directed spatial graph in multiple forms (spatial network, shapefile, edge list, adjacency matrix) based on these components is constructed, based on these two components using the following process. This is doable by running the <code>seagraph</code> command as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Transform currents information to graph</span></span>
 <span><span class="va">graph_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/seagraph.html">seagraph</a></span><span class="op">(</span>component_u <span class="op">=</span> <span class="va">component_u</span>,</span>
 <span>                         component_v <span class="op">=</span> <span class="va">component_v</span><span class="op">)</span></span></code></pre></div>
 <p>Flow and antpath leaflet maps are two possible graphical representations of such graphs using the <code>SeaGraphs</code> could be performed, but using <code>graph_result</code> elements, like the shapefile one is possible as well. Note that the South-Western directions of flows and magnitudes the final graphs are depicted in both Figures <a href="#fig-Figure2">2</a> and <a href="#fig-Figure3">3</a>. Note that these outputs are dependent on the selected number of nearest neighbors in the <code>seagraph</code> function.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/flows_sfn.html">flows_sfn</a></span><span class="op">(</span><span class="va">graph_result</span><span class="op">)</span></span></code></pre></div>
 <p align="center">
 <img src="articles/flows_sfn.png" alt="Figure 2: Flow leaflet map" width="100%"></p>
 <p class="caption" align="center">
 <span id="fig-Figure2"></span>Figure 2: Flow leaflet map.
 </p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/antpath_sfn.html">antpath_sfn</a></span><span class="op">(</span><span class="va">graph_result</span><span class="op">)</span></span></code></pre></div>
 <p align="center">
 <img src="articles/antpath_sfn.png" alt="Figure 3: Antpath leaflet map" width="100%"></p>
@@ -131,6 +134,7 @@
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
+<li><a href="https://cloud.r-project.org/package=SeaGraphs" class="external-link">View on CRAN</a></li>
 <li><a href="https://github.com/cadam00/SeaGraphs/" class="external-link">Browse source code</a></li>
 <li><a href="https://github.com/cadam00/SeaGraphs/issues" class="external-link">Report a bug</a></li>
 </ul>
@@ -166,7 +170,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://CRAN.R-project.org/package=SeaGraphs" class="external-link"><img src="https://www.r-pkg.org/badges/version/SeaGraphs" alt="CRAN status"></a></li>
-<li><a href="https://github.com/cadam00/SeaGraphs" class="external-link"><img src="https://img.shields.io/badge/devel%20version-0.1.2-blue.svg" alt="Developmental version"></a></li>
+<li><a href="https://github.com/cadam00/SeaGraphs" class="external-link"><img src="https://img.shields.io/badge/devel%20version-0.1.3-blue.svg" alt="Developmental version"></a></li>
 <li><a href="https://github.com/cadam00/SeaGraphs/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/cadam00/SeaGraphs/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://app.codecov.io/gh/cadam00/SeaGraphs" class="external-link"><img src="https://codecov.io/gh/cadam00/SeaGraphs/graph/badge.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://doi.org/10.5281/zenodo.14169972" class="external-link"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.14169972.svg" alt="DOI"></a></li>
