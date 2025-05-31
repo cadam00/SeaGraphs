@@ -40,14 +40,6 @@ further inspection of the methods used in this package is illustrated at
 Nagkoulis et al. ([2025](#ref-nagkoulis2025ecological)), where the whole Black
 Sea is examined.
 
-## **Installation**
-
-Development version of the package can be installed using:
-``` r
-if (!require(remotes)) install.packages("remotes")
-remotes::install_github("cadam00/SeaGraphs")
-```
-
 ## **Illustration example**
 
 Currents information about the flow directions is usually split into horizontal

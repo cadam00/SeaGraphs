@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">SeaGraphs</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,15 +81,6 @@ Nagkoulis et al. (<a href="#ref-nagkoulis2025ecological">2025</a>),
 where the whole Black Sea is examined.</p>
 </div>
 <div class="section level2">
-<h2 id="installation">
-<strong>Installation</strong><a class="anchor" aria-label="anchor" href="#installation"></a>
-</h2>
-<p>Development version of the package can be installed using:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org" class="external-link">remotes</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"cadam00/SeaGraphs"</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
 <h2 id="illustration-example">
 <strong>Illustration example</strong><a class="anchor" aria-label="anchor" href="#illustration-example"></a>
 </h2>
@@ -100,7 +91,7 @@ use a modified yearly aggregated subset of the Black Sea site (Lima et
 al., <a href="#ref-lima2020copernicus">2020</a>; Schulzweida, <a href="#ref-schulzweida2020cdo">2023</a>) provided in the form of
 <code>SpatRaster</code> elements. This input can be plotted using the
 following:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Import packages</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/cadam00/SeaGraphs" class="external-link">SeaGraphs</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -125,7 +116,7 @@ multiple forms (spatial network, shapefile, edge list, adjacency matrix)
 based on these components is constructed, based on these two components
 using the following process. This is doable by running the
 <code>seagraph</code> command as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Transform currents information to graph</span></span>
 <span><span class="va">graph_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seagraph.html">seagraph</a></span><span class="op">(</span>component_u <span class="op">=</span> <span class="va">component_u</span>,</span>
 <span>                         component_v <span class="op">=</span> <span class="va">component_v</span><span class="op">)</span></span></code></pre></div>
@@ -137,14 +128,14 @@ directions of flows and magnitudes the final graphs are depicted in both
 Figures <a href="#fig-Figure2">2</a> and <a href="#fig-Figure3">3</a>.
 Note that these outputs are dependent on the selected number of nearest
 neighbors in the <code>seagraph</code> function.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/flows_sfn.html">flows_sfn</a></span><span class="op">(</span><span class="va">graph_result</span><span class="op">)</span></span></code></pre></div>
 <p align="center">
 <img src="flows_sfn.png" alt="Figure 2: Flow leaflet map" width="100%"></p>
 <p class="caption" align="center">
 <span id="fig-Figure2"></span>Figure 2: Flow leaflet map.
 </p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/antpath_sfn.html">antpath_sfn</a></span><span class="op">(</span><span class="va">graph_result</span><span class="op">)</span></span></code></pre></div>
 <p align="center">
 <img src="antpath_sfn.png" alt="Figure 3: Antpath leaflet map" width="100%"></p>

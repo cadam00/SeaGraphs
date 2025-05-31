@@ -1,7 +1,7 @@
 Package: SeaGraphs
 Type: Package
 Title: Sea Currents to Connectivity Transformation
-Version: 0.1.2
+Version: 0.1.3
 Authors@R: c(person("Nikolaos", "Nagkoulis", role = "aut",
              email = "nikolaosn@civil.auth.gr",
              comment = c(ORCID = "0000-0002-1900-2634")),
@@ -21,7 +21,7 @@ Authors@R: c(person("Nikolaos", "Nagkoulis", role = "aut",
 Maintainer: Christos Adam <econp266@econ.soc.uoc.gr>
 Description: Transformation of sea currents to connectivity data. Two files of
  horizontal and vertical currents flows are transformed into connectivity data
- in the form of sfnetwork, shapefile, edge list and adjacency matrix. An
+ in the form of 'sfnetwork', shapefile, edge list and adjacency matrix. An
  application example is shown at Nagkoulis et al. (2025)
  <doi:10.1016/j.dib.2024.111268>.
 License: GPL-3

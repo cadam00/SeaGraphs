@@ -1,6 +1,6 @@
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/SeaGraphs)](https://CRAN.R-project.org/package=SeaGraphs)
-[![Developmental version](https://img.shields.io/badge/devel%20version-0.1.2-blue.svg)](https://github.com/cadam00/SeaGraphs)
+[![Developmental version](https://img.shields.io/badge/devel%20version-0.1.3-blue.svg)](https://github.com/cadam00/SeaGraphs)
 [![R-CMD-check](https://github.com/cadam00/SeaGraphs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/cadam00/SeaGraphs/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/cadam00/SeaGraphs/graph/badge.svg)](https://app.codecov.io/gh/cadam00/SeaGraphs)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14169972.svg)](https://doi.org/10.5281/zenodo.14169972)
@@ -23,6 +23,11 @@ Nagkoulis et al. ([2025](#ref-nagkoulis2025ecological)), where the whole Black
 Sea is examined.
 
 ## **Installation**
+
+Latest official version of the package can be installed using:
+``` r
+install.packages("SeaGraphs")
+```
 
 Development version of the package can be installed using:
 ``` r

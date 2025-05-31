@@ -1,3 +1,11 @@
+# SeaGraphs 0.1.3
+
+## Minor changes
+
+- Correct DESCRIPTION text.
+
+- Update README and Introduction text.
+
 # SeaGraphs 0.1.2
 
 ## Minor changes
