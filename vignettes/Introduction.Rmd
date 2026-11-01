@@ -1,7 +1,8 @@
 ---
 title: "Introduction to SeaGraphs"
-author: "Nikolaos Nagkoulis, Christos Adam, Ioannis G. Mamoutos,
-Antonios D. Mazaris, Stelios Katsanevakis"
+author: >
+  Nikolaos Nagkoulis, Christos Adam, Ioannis G. Mamoutos,
+  Antonios D. Mazaris, Stelios Katsanevakis
 output:
   html_document:
     df_print: paged

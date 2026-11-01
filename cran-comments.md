@@ -1,10 +1,9 @@
-# SeaGraphs 0.1.3
+# SeaGraphs 0.1.4
 
 ## Minor changes
 
-- Correct DESCRIPTION text.
-
-- Update README and Introduction text.
+Fixed the invalid indentation of a line in a double-quoted scalar in
+Introduction.Rmd.
 
 ## R CMD check results
 
